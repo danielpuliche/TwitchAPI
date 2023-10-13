@@ -1,10 +1,9 @@
 import React from 'react'
 
 const SearchBar = ({
-    setSearchValue
+    setSearchValue,
+    searchValue
 }) => {
-    const [valueBar,setValueBar] = React.useState('')
-
     return (
         <div 
             className='
@@ -33,48 +32,13 @@ const SearchBar = ({
                     placeholder:italic
                     text-black
                 '
-                value={valueBar}
+                value={searchValue}
                 onChange={
                     (event) => {
-                        setValueBar(event.target.value)
+                        setSearchValue(event.target.value)
                     }
-                }
-                onKeyUp={
-                    (e) => {
-                        e.code === "Enter" || e.code === "NumpadEnter"?
-                            setSearchValue(valueBar)
-                        :
-                            <></>
-                    }
-                }      
+                }     
             />
-            <span 
-                className='
-                    flex
-                    justify-center
-                    items-center
-                    hover:bg-strongPurpleTwitch
-                    h-10
-                    w-10
-                    text-lg
-                    cursor-pointer
-                    font-bold
-                    absolute
-                    right-0
-                    top-6
-                    border
-                    border-strongPurpleTwitch
-                    shadow-lg
-                    bg-lightPurpleTwitch
-                    rounded-full
-                '
-                onClick={
-                    () =>{
-                        setSearchValue(valueBar)}
-                    }
-            >
-                🔎
-            </span>
         </div>
     )
 }

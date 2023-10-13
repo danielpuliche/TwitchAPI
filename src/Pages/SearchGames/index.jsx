@@ -48,6 +48,7 @@ const SearchGames = () => {
       <Header title="SEARCH GAMES"/>
       <SearchBar 
         setSearchValue={setSearchValue}
+        searchValue={searchValue}
       />
       <ListGames>
         {loading &&
@@ -66,6 +67,20 @@ const SearchGames = () => {
             <GameItemLoading />
           </>
         }
+        {searchedGames.length === 0 && 
+        <p 
+          className='
+            text-2xl
+            text-center
+            mx-auto
+            flex
+            col-span-3
+            md:col-span-4
+            p-4
+          '
+        >
+          No hay coincidencias... 😢
+        </p>}
         {searchedGames.map(
           (game,index) => (
             <GameItem key={index} gameName={game.name} imgURL={game.box_art_url}/>
