@@ -6,7 +6,7 @@ const GameItem = ({gameName, imgURL, index}) => {
 
     return (
         <div
-        className={`bg-BlackTwitch flex flex-col my-6 shadow-lg rounded-lg relative hover:shadow-lg transform transition-transform duration-300 hover:scale-105 
+        className={`bg-BlackTwitch flex flex-col my-4 shadow-lg rounded-lg relative hover:shadow-lg transform transition-transform duration-300 hover:scale-105 
             ${
                 index === 0?
                 "row-span-2 col-span-2"

@@ -2,6 +2,9 @@
 export default {
   content: ['./index.html','./src/**/*.{vue,jsx,js,ts,tsx}'],
   theme: {
+    backgroundSize: {
+      '400%': '400%'
+    },
     extend: {
       colors: {
         'strongPurpleTwitch': 'rgb(100,65,165)',

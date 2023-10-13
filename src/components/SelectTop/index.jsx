@@ -2,7 +2,8 @@ import React from 'react'
 
 const SelectTop = ({
     topValue,
-    setSelectedTop
+    setSelectedTop,
+    setLoading
 }) => {
 
     return (
@@ -23,6 +24,7 @@ const SelectTop = ({
                 onClick={
                     (e) => {
                         setSelectedTop(topValue)
+                        setLoading(true)
                     }
                 }
             >

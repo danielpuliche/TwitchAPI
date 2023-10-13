@@ -3,36 +3,39 @@ import { Header } from '../../components/Header'
 import { SearchBar} from '../../components/SearchBar'
 import { ListGames } from '../../components/ListGames'
 import { GameItem } from '../../components/GameItem'
+import { GameItemLoading } from '../../components/GameItemLoading'
 
 import axios from 'axios'
 
 const SearchGames = () => {
 
-  
+  const [loading, setLoading] = React.useState(true)
   const [games,setGames] = React.useState([])
   const [searchValue, setSearchValue] = React.useState('')
   
   React.useEffect(
     () => {
-
-      const urlAPI = "https://api.twitch.tv/helix/games/top?first=100"
-      const ClientID = "ypp5uhynp8354lc3jgmmixh0d4m1nk"
-      const AccessToken = "swvcbmoalsauzomjwa3upjajbmig61"
-      
-      try {
-        axios.get(urlAPI,{
-          headers: {
-            'Client-ID': ClientID,
-            'Authorization':`Bearer ${AccessToken}`
-          }
-        }).then(
-          (response) => {
-            setGames(response.data.data)
-          }
-        );
-      } catch (error) {
+      setTimeout(() => {
+        const urlAPI = "https://api.twitch.tv/helix/games/top?first=100"
+        const ClientID = "ypp5uhynp8354lc3jgmmixh0d4m1nk"
+        const AccessToken = "swvcbmoalsauzomjwa3upjajbmig61"
         
-      }
+        try {
+          axios.get(urlAPI,{
+            headers: {
+              'Client-ID': ClientID,
+              'Authorization':`Bearer ${AccessToken}`
+            }
+          }).then(
+            (response) => {
+              setGames(response.data.data)
+              setLoading(false)
+            }
+          );
+        } catch (error) {
+          console.log(error);  
+        }
+      },500)
     }
   ,[])
   
@@ -47,9 +50,25 @@ const SearchGames = () => {
         setSearchValue={setSearchValue}
       />
       <ListGames>
+        {loading &&
+          <>          
+            <GameItemLoading />
+            <GameItemLoading />
+            <GameItemLoading />
+            <GameItemLoading />
+            <GameItemLoading />
+            <GameItemLoading />
+            <GameItemLoading />
+            <GameItemLoading />
+            <GameItemLoading />
+            <GameItemLoading />
+            <GameItemLoading />
+            <GameItemLoading />
+          </>
+        }
         {searchedGames.map(
-          (game) => (
-            <GameItem key={game.name} gameName={game.name} imgURL={game.box_art_url}/>
+          (game,index) => (
+            <GameItem key={index} gameName={game.name} imgURL={game.box_art_url}/>
           )
         )}
       </ListGames>

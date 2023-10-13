@@ -3,35 +3,41 @@ import { Header } from '../../components/Header'
 import { ListGames } from '../../components/ListGames'
 import { GameItem } from '../../components/GameItem'
 import { SelectTop} from '../../components/SelectTop'
+import { GameItemLoading } from '../../components/GameItemLoading'
 
 import axios from 'axios'
 
 const TopGames = () => {
 
+    const [loading, setLoading] = React.useState(true)
     const [selectedTop,setSelectedTop] = React.useState('5')    
     const [topGames,setTopGames] = React.useState([])
     
     React.useEffect(
         () => {
-            console.log(`TOP SEARCH (${selectedTop})`);
-            try {
+            setTimeout(() => {
                 const urlAPI = `https://api.twitch.tv/helix/games/top?first=${selectedTop}`
                 const ClientID = "ypp5uhynp8354lc3jgmmixh0d4m1nk"
                 const AccessToken = "swvcbmoalsauzomjwa3upjajbmig61"
-                
-                axios.get(urlAPI,{
-                    headers: {
-                        'Client-ID': ClientID,
-                        'Authorization':`Bearer ${AccessToken}`
-                    }
-                }).then(
-                    (response) => {
-                        setTopGames(response.data.data)
-                    }
-                );
-            } catch (error) {
-                console.log('ERROR');
-            }
+    
+                try {
+                    
+                    axios.get(urlAPI,{
+                        headers: {
+                            'Client-ID': ClientID,
+                            'Authorization':`Bearer ${AccessToken}`
+                        }
+                    }).then(
+                        (response) => {
+                            setLoading(false)
+                            setTopGames(response.data.data)
+                        }
+                    );
+                } catch (error) {
+                    console.log('ERROR');
+                }
+            },500)
+            
         }
     ,[selectedTop])
 
@@ -48,18 +54,21 @@ const TopGames = () => {
                     <SelectTop 
                         topValue={5}
                         setSelectedTop={setSelectedTop}
+                        setLoading={setLoading}
                     />
                 }
                 {selectedTop != 10 &&
                     <SelectTop 
                         topValue={10}
                         setSelectedTop={setSelectedTop}
+                        setLoading={setLoading}
                     />
                 }
                 {selectedTop != 15 &&
                     <SelectTop 
                         topValue={15}
                         setSelectedTop={setSelectedTop}
+                        setLoading={setLoading}
                     />
                 }
             </div>
@@ -86,6 +95,22 @@ const TopGames = () => {
                 </div>
             </div>
             <ListGames>
+                {loading && 
+                    <>
+                        <GameItemLoading />
+                        <GameItemLoading />
+                        <GameItemLoading />
+                        <GameItemLoading />
+                        <GameItemLoading />
+                        <GameItemLoading />
+                        <GameItemLoading />
+                        <GameItemLoading />
+                        <GameItemLoading />
+                        <GameItemLoading />
+                        <GameItemLoading />
+                        <GameItemLoading />
+                    </>
+                }
                 {topGames.map(
                 (game, index) => (
             <GameItem 
