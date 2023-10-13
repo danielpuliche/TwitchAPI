@@ -10,8 +10,7 @@ const SearchBar = ({
                 relative 
                 flex 
                 content-center 
-                align-middle 
-                m-4
+                align-middle
             '
         >
             <input 
@@ -19,10 +18,10 @@ const SearchBar = ({
                 id='SearchBar'
                 className='
                     rounded-2xl 
-                    m-6 
-                    h-10 
+                    m-3 md:m-4 lg:m-6
+                    h-6 md:h-8 lg:h-10 
                     w-full 
-                    text-2xl 
+                    text-sm md:text-md lg:text-2xl 
                     text-center 
                     font-normal 
                     shadow-inner 

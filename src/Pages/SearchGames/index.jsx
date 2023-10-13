@@ -67,7 +67,7 @@ const SearchGames = () => {
             <GameItemLoading />
           </>
         }
-        {searchedGames.length === 0 && 
+        {!loading && searchedGames.length === 0 && 
         <p 
           className='
             text-2xl

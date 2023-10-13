@@ -10,8 +10,9 @@ const SelectTop = ({
         <button
                 className='
                     bg-strongPurpleTwitch
-                    p-4
-                    mx-2
+                    p-1
+                    mx-2 md:mx-4 lg:mx-8
+                    text-sm md:text-lg lg:text-2xl
                     flex-1
                     rounded-2xl
                     disabled:bg-lightPurpleTwitch

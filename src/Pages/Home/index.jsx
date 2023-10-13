@@ -8,7 +8,13 @@ const Home = () => {
     return (
         <>
             <Header title="HOME"/>
-            <div className='flex flex-col m-4'>
+            <div 
+                className='
+                    flex 
+                    flex-col 
+                    m-4
+                '
+            >
                 < Selector 
                     link="/TopGames"
                     msg="Ver TOP de juegos"

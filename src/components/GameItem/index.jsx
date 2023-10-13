@@ -6,7 +6,16 @@ const GameItem = ({gameName, imgURL, index}) => {
 
     return (
         <div
-        className={`bg-BlackTwitch flex flex-col my-4 shadow-lg rounded-lg relative hover:shadow-lg transform transition-transform duration-300 hover:scale-105 
+        className={`
+            bg-BlackTwitch 
+            flex 
+            flex-col
+            my-1 
+            shadow-lg 
+            rounded-lg 
+            relative 
+            hover:shadow-lg transform transition-transform duration-300 
+            hover:scale-105 
             ${
                 index === 0?
                 "row-span-2 col-span-2"
@@ -24,7 +33,7 @@ const GameItem = ({gameName, imgURL, index}) => {
                             bg-BlackTwitch
                             p-2
                             rounded-2xl
-                            text-2xl
+                            text-sm md:text-lg lg:text-2xl
                         '
                     >
                         {'#'+(index+1)}
@@ -47,7 +56,7 @@ const GameItem = ({gameName, imgURL, index}) => {
                     bottom-0
                     bg-BlackTwitch
                     p-2
-                    rounded-2xl
+                    rounded-lg
                 '   
             >
                 {gameName}

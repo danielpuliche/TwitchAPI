@@ -46,7 +46,7 @@ const TopGames = () => {
             <Header title="SEARCH GAMES"/>
             <div
                 className='
-                    m-4
+                    m-2 md:m-4 lg:m-6
                     flex
                 '    
             >
@@ -82,13 +82,13 @@ const TopGames = () => {
             >
                 <div
                     className='
-                        p-2
+                        p-1 md:p-3
                         mx-10
                         text-center
                         bg-strongPurpleTwitch
                         rounded-t-xl
                         text-whiteTwitch
-                        text-lg
+                        text-sm md:text-lg lg:text-2xl
                     '
                 >
                     TOP {selectedTop}

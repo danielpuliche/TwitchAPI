@@ -18,7 +18,7 @@ const Header = ({title}) => {
                     src={logoTwitch} 
                     alt="Logo"
                     className='
-                        h-4/5
+                        h-3/4
                         m-3
                         p-2
                         flex
@@ -41,7 +41,9 @@ const Header = ({title}) => {
                 className='
                     font-sans
                     font-bold
-                    text-2xl
+                    sm:text-sm
+                    md:text-lg
+                    lg:text-2xl
                     static
                 '
             >

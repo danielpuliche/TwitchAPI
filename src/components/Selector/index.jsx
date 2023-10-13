@@ -14,7 +14,8 @@ const Selector = ({link,msg}) => {
                         rounded-md 
                         text-BlackTwitch 
                         text-center
-                        text-lg
+                        sm:text-sm
+                        md:text-2xl
                         hover:bg-strongPurpleTwitch
                         hover:text-whiteTwitch
                     '
