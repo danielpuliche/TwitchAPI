@@ -4,47 +4,39 @@ import { SearchBar} from '../../components/SearchBar'
 import { ListGames } from '../../components/ListGames'
 import { GameItem } from '../../components/GameItem'
 
+import axios from 'axios'
+
 const SearchGames = () => {
 
-  const defaultGames = [
-    {
-      "name":"Minecraft",
-      "img":"X"
-    },
-    {
-      "name":"Roblox",
-      "img":"X"
-    },
-    {
-      "name":"GTA V",
-      "img":"X"
-    },  
-    {
-      "name":"Terraria",
-      "img":"X"
-    },
-    {
-      "name":"Apex Legends",
-      "img":"X"
-    },    
-  ]
+  const urlAPI = "https://api.twitch.tv/helix/games/top?first=100"
+  const ClientID = "ypp5uhynp8354lc3jgmmixh0d4m1nk"
+  const AccessToken = "swvcbmoalsauzomjwa3upjajbmig61"
 
   const [games,setGames] = React.useState([])
   const [searchValue, setSearchValue] = React.useState('')
-  
-  const searchedGames = defaultGames.filter(
-    (game) => !!game.name.toUpperCase().includes(searchValue.toUpperCase())
-  )
 
   React.useEffect(
     () => {
       try {
-        console.log('Effect');
+        axios.get(urlAPI,{
+          headers: {
+            'Client-ID': ClientID,
+            'Authorization':`Bearer ${AccessToken}`
+          }
+        }).then(
+          (response) => {
+            setGames(response.data.data)
+          }
+        );
       } catch (error) {
         
       }
     }
   ,[])
+  
+  const searchedGames = games.filter(
+    (game) => !!game.name.toUpperCase().includes(searchValue.toUpperCase())
+  )  
 
   return (
     <>
@@ -55,7 +47,7 @@ const SearchGames = () => {
       <ListGames>
         {searchedGames.map(
           (game) => (
-            <GameItem key={game.name} gameName={game.name}/>
+            <GameItem key={game.name} gameName={game.name} imgURL={game.box_art_url}/>
           )
         )}
       </ListGames>

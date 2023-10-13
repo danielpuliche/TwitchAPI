@@ -1,24 +1,39 @@
 import React from 'react'
-import logoTwitch from '../../assets/logoTwitch.png'
 
-const GameItem = ({gameName}) => {
+const GameItem = ({gameName, imgURL, index}) => {
+
+    const isIndex = (index+1)? true: false
+
     return (
         <div
-            className='
-                bg-BlackTwitch
-                flex
-                my-6
-                shadow-lg
-                rounded-lg
-                relative
-            '
+        className={`bg-BlackTwitch flex flex-col my-6 shadow-lg rounded-lg relative hover:shadow-lg transform transition-transform duration-300 hover:scale-105 
+            ${
+                index === 0?
+                "row-span-2 col-span-2"
+                :""
+            }`
+        }
         >
+            {
+                isIndex && 
+                    <p
+                        className='
+                            m-1
+                            font-normal
+                            absolute
+                            bg-BlackTwitch
+                            p-2
+                            rounded-2xl
+                            text-2xl
+                        '
+                    >
+                        {'#'+(index+1)}
+                    </p>
+            }
             <img 
-                src={logoTwitch} 
+                src={imgURL.replace(`{width}x{height}`,`188x250`)} 
                 alt={gameName}
                 className='
-                    w-20
-                    h-20
                     m-3
                 '
             />
@@ -28,8 +43,11 @@ const GameItem = ({gameName}) => {
                     text-sm
                     font-normal
                     absolute
-                    right-1
+                    end-0
                     bottom-0
+                    bg-BlackTwitch
+                    p-2
+                    rounded-2xl
                 '   
             >
                 {gameName}
