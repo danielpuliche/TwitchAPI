@@ -1,4 +1,6 @@
 import React from 'react'
+import logoTwitch from '../../assets/logoTwitch.png'
+import {Link} from 'react-router-dom'
 
 const Header = ({title}) => {
     return (
@@ -11,6 +13,30 @@ const Header = ({title}) => {
                 justify-center
             '
         >
+            <Link to={'/'}>
+                <img 
+                    src={logoTwitch} 
+                    alt="Logo"
+                    className='
+                        h-4/5
+                        m-3
+                        p-2
+                        flex
+                        justify-center
+                        items-center
+                        hover:shadow
+                        hover:shadow-whiteTwitch
+                        cursor-pointer
+                        font-bold
+                        absolute
+                        left-0
+                        top-0
+                        shadow-lg
+                        bg-BlackTwitch
+                        rounded-full
+                    '
+                />
+            </Link>
             <h1
                 className='
                     font-sans
@@ -26,3 +52,4 @@ const Header = ({title}) => {
 }
     
 export {Header}
+
