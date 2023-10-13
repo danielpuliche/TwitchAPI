@@ -111,7 +111,7 @@ const TopGames = () => {
                         <GameItemLoading />
                     </>
                 }
-                {topGames.map(
+                {!loading && topGames.map(
                 (game, index) => (
             <GameItem 
                 key={index} 
