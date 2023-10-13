@@ -1,27 +1,21 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 import { Header } from '../../components/Header'
 import TwitchLogo from '../../assets/logoTwitch.png'
+import { Selector } from '../../components/Selector'
 
 const Home = () => {
     return (
         <>
             <Header title="HOME"/>
-            <div className='flex flex-col'>
-                <div className='bg-lightPurpleTwitch p-2 m-2 rounded-md text-BlackTwitch text-center'>
-                    <Link
-                        to='/TopGames'
-                    >
-                        TOP
-                    </Link>
-                </div>
-                <div className='bg-lightPurpleTwitch p-2 m-2 rounded-md text-BlackTwitch text-center'>
-                    <Link
-                        to='/SearchGames'
-                    >
-                        SEARCH
-                    </Link>
-                </div>
+            <div className='flex flex-col m-4'>
+                < Selector 
+                    link="/TopGames"
+                    msg="Ver TOP de juegos"
+                />
+                < Selector
+                    link="/SearchGames"
+                    msg="Search games"  
+                />
                 <img src={TwitchLogo}></img>
             </div>
         </>
