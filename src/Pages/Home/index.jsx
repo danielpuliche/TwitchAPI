@@ -4,6 +4,7 @@ import TwitchLogo from '../../assets/logoTwitch.png'
 import { Selector } from '../../components/Selector'
 
 const Home = () => {
+    
     return (
         <>
             <Header title="HOME"/>

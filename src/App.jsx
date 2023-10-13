@@ -1,11 +1,10 @@
-import { useState } from 'react'
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import {Home} from './Pages/Home'
 import {TopGames} from './Pages/TopGames'
 import {SearchGames} from './Pages/SearchGames'
 
 function App() {
-  
+
   return (
     <>
       <Router>
@@ -20,7 +19,7 @@ function App() {
           ></Route>
           <Route 
             element={<SearchGames />}
-            path='SearchGames'
+            path='/SearchGames'
           ></Route>
         </Routes>
       </Router>

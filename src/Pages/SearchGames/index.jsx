@@ -31,10 +31,21 @@ const SearchGames = () => {
 
   const [games,setGames] = React.useState([])
   const [searchValue, setSearchValue] = React.useState('')
+  
   const searchedGames = defaultGames.filter(
     (game) => !!game.name.toUpperCase().includes(searchValue.toUpperCase())
   )
-  
+
+  React.useEffect(
+    () => {
+      try {
+        console.log('Effect');
+      } catch (error) {
+        
+      }
+    }
+  ,[])
+
   return (
     <>
       <Header title="SEARCH GAMES"/>
